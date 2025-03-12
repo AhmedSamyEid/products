@@ -10,7 +10,7 @@ function ProductDetails() {
 
   useEffect(() => {
     let isMounted = true;
-    
+
     async function fetchProduct() {
       try {
         const response = await fetch(`https://fakestoreapi.com/products/${id}`);
@@ -31,11 +31,12 @@ function ProductDetails() {
     fetchProduct();
 
     return () => {
-      isMounted = false; // إلغاء التحديث إذا تم تفريغ المكون
+      isMounted = false;
     };
   }, [id]);
 
-  if (loading) return <p className="text-center text-white">جاري تحميل المنتج...</p>;
+  if (loading)
+    return <p className="text-center text-white">جاري تحميل المنتج...</p>;
   if (error) return <p className="text-center text-red-500">❌ {error}</p>;
 
   return (
